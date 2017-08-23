@@ -27,4 +27,3 @@ test('creates an unordered list with 2 EZNav components in it', () => {
     expect(wrapper.find('.ez-nav-item')).toHaveLength(2)
 
 })
-

@@ -1,0 +1,61 @@
+@mixin nav-mobile-full-screen
+  text-align: center
+  position: fixed
+  display: block
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: aqua
+  z-index: 1
+
+@mixin slide-up-slide-down-toggled
+  top: 0
+  opacity: 1
+  transition: top 500ms ease-in-out 0s
+
+@mixin slide-left-slide-right-toggled
+  left: 0
+  opacity: 1
+  transition: left 500ms ease-in-out 0s
+
+
+  // ===== SLIDE DOWN FULL SCREEN ANIMATION =====
+.ez-nav-mobile--animation-slide-down-full
+  @include nav-mobile-full-screen
+  top: -100%
+  opacity: 0
+  transition: top 500ms ease-in-out 0s, opacity 0s linear 500ms
+  &.ez-nav-mobile--toggled
+    @include slide-up-slide-down-toggled
+
+
+// ===== SLIDE UP FULL SCREEN ANIMATION =====
+.ez-nav-mobile--animation-slide-up-full
+  @include nav-mobile-full-screen
+  top: 100%
+  opacity: 0
+  transition: top 500ms ease-in-out 0s, opacity 0s linear 500ms
+  &.ez-nav-mobile--toggled
+    @include slide-up-slide-down-toggled
+
+
+// ===== SLIDE RIGHT FULL SCREEN ANIMATION =====
+.ez-nav-mobile--animation-slide-right-full
+  @include nav-mobile-full-screen
+  left: -100%
+  opacity: 0
+  transition: left 500ms ease-in-out 0s, opacity 0s linear 500ms
+  &.ez-nav-mobile--toggled
+    @include slide-left-slide-right-toggled
+
+
+// ===== SLIDE LEFT FULL SCREEN ANIMATION =====
+.ez-nav-mobile--animation-slide-left-full
+  @include nav-mobile-full-screen
+  left: 100%
+  opacity: 0
+  transition: left 500ms ease-in-out 0s, opacity 0s linear 500ms
+  &.ez-nav-mobile--toggled
+    @include slide-left-slide-right-toggled
+
