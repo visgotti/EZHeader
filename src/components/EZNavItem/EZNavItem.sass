@@ -1,4 +1,74 @@
+$push-speed: 150ms
+
 .ez-nav-item
-  display: inline
+  display: table
+  overflow: hidden
+
+  &:hover
+    cursor: pointer
+
+  &.ez-nav-fixed-width
+    text-align: center
+
+
+  // ===== STYLES FOR BACKGROUND WITH NO ANIMATION ===== //
+  .ez-nav-item-background1-none
+    background-color: red
+  .ez-nav-item-background2-none
+    background-color: transparent
+  &:hover
+    .ez-nav-item-background1-none
+      background-color: transparent
+    .ez-nav-item-background2-none
+      background-color: deepskyblue
+
+    // ===== STYLES FOR BACKGROUND SLIDE RIGHT ===== //
+  .ez-nav-item-background1-slide-right
+    background-color: red
+  .ez-nav-item-background2-slide-right
+    left: -100%
+  &:hover
+    .ez-nav-item-background1-slide-right
+      right: -100%
+      transition: right $push-speed ease-in-out
+    .ez-nav-item-background2-slide-right
+      background-color: deepskyblue
+      left: 0
+      transition: left $push-speed ease-in-out
+
+
+  // ===== STYLES FOR BACKGROUND SLIDE LEFT ===== //
+  .ez-nav-item-background1-slide-left
+    background-color: red
+  .ez-nav-item-background2-slide-left
+    left: 100%
+  &:hover
+    .ez-nav-item-background1-slide-left
+      right: 100%
+      transition: right $push-speed ease-in-out
+    .ez-nav-item-background2-slide-left
+      background-color: deepskyblue
+      left: 0
+      transition: left $push-speed ease-in-out
+
+
 .ez-nav-item-mobile
   display: block
+
+.ez-nav-item-value
+  position: relative
+  display: table-cell
+  vertical-align: middle
+  height: 100%
+  padding: 5px
+  z-index: 1
+
+.ez-nav-item-background
+  height: 100%
+  width: 100%
+  position: absolute
+  right: 0
+  top: 0
+  z-index: -1
+
+
