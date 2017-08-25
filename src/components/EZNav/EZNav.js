@@ -3,24 +3,29 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 require('./EZNav.sass')
 
-/** Nav to contain NavItems on regular header*/
+/** Nav to contain NavItems*/
 
-function EZNav({children}){
-
+function EZNav({children, isMobileView}){
 
     const navItemClass = classNames({
         'ez-nav': true,
+        'ez-hide': isMobileView
     });
 
-
     return (
-        <ul className = {navItemClass}>
+        <div className = {navItemClass}>
             { children }
-        </ul>
+        </div>
     )
 }
 
-EZNav.propTypes = {};
-EZNav.defaultProps = {};
+EZNav.propTypes = {
+    /** If the screen size is the size for toggling mobile */
+    isMobileView: PropTypes.bool,
+}
+EZNav.defaultProps = {
+    isMobileView: false
+};
+
 
 export default EZNav;

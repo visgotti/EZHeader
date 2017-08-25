@@ -6,24 +6,45 @@ import EZNav from './EZNav';
 import {shallow, mount} from 'enzyme';
 
 // Interaction Test----------------------------------------------------
-test('creates an unordered list when it renders', () => {
-    const wrapper = shallow(<EZNav/>)
-    expect(wrapper.find('ul').exists()).toBe(true)
+
+test('creates a div with ez-nav class', () => {
+    const wrapper = shallow(<EZNav isMobileView={false}/>)
+    expect(wrapper.find('div.ez-nav')).toHaveLength(1)
 });
 
-test('creates an unordered list with the correct class', () => {
-    const wrapper = shallow(<EZNav/>)
-    expect(wrapper.find('.ez-nav')).toHaveLength(1)
-});
-
-test('creates an unordered list with 2 EZNav components in it', () => {
+test('creates an unordered list with 2 EZNavItem components in it', () => {
     const wrapper = mount(
-        <EZNav>
+        <EZNav isMobileView={false}>
             <EZNavItem value="Test"/>
             <EZNavItem value="Test2"/>
         </EZNav>
     )
-    expect(wrapper.find('li')).toHaveLength(2)
     expect(wrapper.find('.ez-nav-item')).toHaveLength(2)
 
 })
+
+
+test('does not have class ez-hidden when isMobileView is false', () => {
+
+    const wrapper = mount(
+        <EZNav isMobileView={false}>
+            <EZNavItem value="Test"/>
+            <EZNavItem value="Test2"/>
+        </EZNav>
+    )
+
+    expect(wrapper.find('.ez-hidden')).toHaveLength(0)
+});
+
+
+test('does have class ez-hidden when isMobileView is true', () => {
+
+    const wrapper = mount(
+        <EZNav isMobileView>
+            <EZNavItem value="Test"/>
+            <EZNavItem value="Test2"/>
+        </EZNav>
+    )
+
+    expect(wrapper.find('.ez-hidden')).toHaveLength(0)
+});
