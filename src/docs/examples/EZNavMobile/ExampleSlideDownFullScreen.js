@@ -1,5 +1,7 @@
 import React from 'react';
 import EZNavMobile from 'EZHeader/EZNavMobile';
+import EZHamburger from 'EZHeader/EZHamburger';
+
 
 /** Slide down full screen menu animation. */
 class ExampleSlideDownFullScreen extends React.Component {
@@ -19,10 +21,11 @@ class ExampleSlideDownFullScreen extends React.Component {
     render() {
         const zIndex = this.state.toggled ? 2000 : 0;
         const btnMsg = this.state.toggled ? 'Hide menu!' : 'Show menu!';
+
         return (
             <div>
                 <button style = {{position: 'relative', zIndex}}onClick={this.toggle.bind(this)}>{btnMsg}</button>
-                <EZNavMobile animation={'slide-down-full'} isToggled={ this.state.toggled }/>
+                <EZNavMobile isMobileView animation={'slide-down-full'} isToggled={ this.state.toggled }/>
             </div>
         )
     }

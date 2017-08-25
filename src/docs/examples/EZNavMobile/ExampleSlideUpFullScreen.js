@@ -23,7 +23,7 @@ class ExampleSlideDownFullScreen extends React.Component {
         return (
             <div>
                 <button style = {{position: 'relative', zIndex}}onClick={this.toggle.bind(this)}>{btnMsg}</button>
-                <EZNavMobile animation={'slide-up-full'} isToggled={ this.state.toggled }/>
+                <EZNavMobile isMobileView animation={'slide-up-full'} isToggled={ this.state.toggled }/>
             </div>
         )
     }

@@ -19,6 +19,7 @@ export default class App extends React.Component {
 
     render() {
         const {route} = this.state;
+
         const component = route ? componentData.filter( component => component.name === route)[0] : componentData[0];
 
         return (

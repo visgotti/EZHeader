@@ -18,8 +18,8 @@ class ExampleSpinAnimation extends React.Component {
 
     render() {
         return (
-            <div>
-               <EZHamburger active={this.state.toggled} animation='spin' onClick={this.toggle.bind(this)}/>
+            <div style = {{height: '50px', width: '50px'}}>
+               <EZHamburger isMobileView active={this.state.toggled} animation='spin' onClick={this.toggle.bind(this)}/>
             </div>
         )
     }
