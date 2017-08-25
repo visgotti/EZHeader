@@ -22,6 +22,7 @@ $hamburger-hover-transition-timing-function: linear !default
 .ez-hamburger
   padding: $hamburger-padding-y $hamburger-padding-x
   display: inline-block
+  position: absolute
   cursor: pointer
 
   transition-property: opacity, filter
@@ -43,6 +44,21 @@ $hamburger-hover-transition-timing-function: linear !default
   height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2
   display: inline-block
   position: relative
+
+
+.ez-hamburger-active
+  &.ez-fixed-top-right
+    position: fixed
+    right: 0
+    top: 0
+    transition: top 500ms ease-in-out 0s, right 500ms ease-in-out 0s
+
+  &.ez-fixed-top-left
+    display: block
+    top: 0
+    position: fixed
+    float: left
+
 
 
 .ez-hamburger-inner
