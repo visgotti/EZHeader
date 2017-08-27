@@ -1,4 +1,17 @@
 $push-speed: 150ms
+$rectangle-speed: 300ms
+
+// ========== MIXINS ========== //
+@mixin scale-to-0
+  -ms-transform: scale(0) /* IE 9 */
+  -webkit-transform: scale(0) /* Safari */
+  transform: scale(0)
+
+@mixin scale-to-full
+  -ms-transform: scale(1) /* IE 9 */
+  -webkit-transform: scale(1) /* Safari */
+  transform: scale(1)
+// ========== END OF MIXINS ========= //
 
 .ez-nav-item
   display: table
@@ -11,7 +24,10 @@ $push-speed: 150ms
     text-align: center
 
 
-  // ===== STYLES FOR BACKGROUND WITH NO ANIMATION ===== //
+  // =============== BACKGROUND ONHOVER TRANSITION STYLES ============= //
+  // background1 when the nav item is not hovered
+  // background 2 is for when the nav item is hovered
+  // =====  NO ANIMATION ===== //
   .ez-nav-item-background1-none
     background-color: red
   .ez-nav-item-background2-none
@@ -22,11 +38,12 @@ $push-speed: 150ms
     .ez-nav-item-background2-none
       background-color: deepskyblue
 
-    // ===== STYLES FOR BACKGROUND SLIDE RIGHT ===== //
+    // ===== SLIDE RIGHT ===== //
   .ez-nav-item-background1-slide-right
     background-color: red
   .ez-nav-item-background2-slide-right
     left: -100%
+    transition: left $push-speed ease-in-out
   &:hover
     .ez-nav-item-background1-slide-right
       right: -100%
@@ -37,11 +54,12 @@ $push-speed: 150ms
       transition: left $push-speed ease-in-out
 
 
-  // ===== STYLES FOR BACKGROUND SLIDE LEFT ===== //
+  // ===== SLIDE LEFT ===== //
   .ez-nav-item-background1-slide-left
     background-color: red
   .ez-nav-item-background2-slide-left
     left: 100%
+    transition: left $push-speed ease-in-out
   &:hover
     .ez-nav-item-background1-slide-left
       right: 100%
@@ -50,6 +68,46 @@ $push-speed: 150ms
       background-color: deepskyblue
       left: 0
       transition: left $push-speed ease-in-out
+
+
+
+  // ===== RECTANGLE IN ===== //
+  .ez-nav-item-background1-rectangle-in
+    background-color: red
+    @include scale-to-full
+    transition: transform $rectangle-speed ease-in-out
+  .ez-nav-item-background2-rectangle-in
+    background-color: deepskyblue
+    z-index: -2
+
+  &:hover
+    .ez-nav-item-background1-rectangle-in
+      @include scale-to-0
+      background-color: transparent
+      transition: transform $rectangle-speed ease-in-out
+
+
+
+  // ===== RECTANGLE BOTH ===== //
+  .ez-nav-item-background1-rectangle-both
+    background-color: red
+    @include scale-to-full
+    transition: transform $rectangle-speed ease-in-out
+
+  .ez-nav-item-background2-rectangle-both
+    @include scale-to-0
+    transition: transform $rectangle-speed ease-in-out
+
+  &:hover
+    .ez-nav-item-background1-rectangle-both
+      @include scale-to-0
+      transition: transform $rectangle-speed ease-in-out
+    .ez-nav-item-background2-rectangle-both
+      background-color: deepskyblue
+      @include scale-to-full
+      transition: transform $rectangle-speed ease-in-out
+
+
 
 
 .ez-nav-item-mobile
