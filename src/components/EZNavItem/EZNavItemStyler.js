@@ -25,7 +25,8 @@ function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
         'ez-nav-item-background': true,
         'ez-nav-item-background1-none' : hoverTransition === 'none',
         'ez-nav-item-background1-slide-right': hoverTransition === 'slideRight',
-        'ez-nav-item-background1-slide-left': hoverTransition === 'slideLeft'
+        'ez-nav-item-background1-slide-left': hoverTransition === 'slideLeft',
+        'ez-nav-item-background1-rectangle-in': hoverTransition === 'rectangleIn',
 
     });
 
@@ -33,8 +34,8 @@ function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
         'ez-nav-item-background': true,
         'ez-nav-item-background2-none' : hoverTransition === 'none',
         'ez-nav-item-background2-slide-right': hoverTransition === 'slideRight',
-        'ez-nav-item-background2-slide-left': hoverTransition === 'slideLeft'
-
+        'ez-nav-item-background2-slide-left': hoverTransition === 'slideLeft',
+        'ez-nav-item-background2-rectangle-in': hoverTransition === 'rectangleIn',
     });
 
     styleObject.styles.navItemStyle = {
