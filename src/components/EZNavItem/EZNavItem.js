@@ -10,7 +10,7 @@ require('./EZNavItem.sass');
 /** Nav Item for Nav list */
 function EZNavItem({ value, fixedWidth, colorStyles, hoverTransition, style }){
 
-    const styleObject = EZNavItemStyler(fixedWidth, colorStyles, hoverTransition)
+    const styleObject = EZNavItemStyler(fixedWidth, colorStyles, hoverTransition);
 
     return (
         <div style = {{display: 'inline-block'}}>
@@ -41,8 +41,8 @@ EZNavItem.propTypes = {
     }),
 
     /** type of transition you want the nav item to do when it's hovered */
-    hoverTransition: PropTypes.oneOf(['none', 'slideRight', 'slideLeft'])
-}
+    hoverTransition: PropTypes.oneOf(['none', 'slideRight', 'slideLeft', 'rectangleIn'])
+};
 
 EZNavItem.defaultProps = {
     fixedWidth: 'auto',
