@@ -1,1 +1,1 @@
-export {default} from './EZHamburger'
+export { default } from './EZHamburger';

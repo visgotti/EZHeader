@@ -1,17 +1,14 @@
 import React from 'react';
 import EZNavItem from 'EZHeader/EZNavItem';
 
-
-/** Default nav item*/
+/** Default nav item */
 class ExampleNav extends React.Component {
-
     render() {
-
         return (
             <div>
-                <EZNavItem value="test"/>
+                <EZNavItem value="test" />
             </div>
-        )
+        );
     }
 }
 

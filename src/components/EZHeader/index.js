@@ -1,1 +1,1 @@
-export {default} from './EZHeader'
+export { default } from './EZHeader';

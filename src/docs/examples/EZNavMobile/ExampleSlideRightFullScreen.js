@@ -1,19 +1,20 @@
 import React from 'react';
 import EZNavMobile from 'EZHeader/EZNavMobile';
 
-/** Slide right full screen menu animation. */
+/** Slide down full screen menu animation. */
 class ExampleSlideDownFullScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggled: false
+            toggled: false,
         };
+        this.toggle = this.toggle.bind(this);
     }
 
     toggle() {
-        this.setState(prevState => {
-            return { toggled: !prevState.toggled };
-        })
+        this.setState(prevState => ({
+            toggled: !prevState.toggled,
+        }));
     }
 
     render() {
@@ -22,10 +23,10 @@ class ExampleSlideDownFullScreen extends React.Component {
 
         return (
             <div>
-                <button style = {{position: 'relative', zIndex}}onClick={this.toggle.bind(this)}>{btnMsg}</button>
-                <EZNavMobile isMobileView animation={'slide-right-full'} isToggled={ this.state.toggled }/>
+                <button style={{ position: 'relative', zIndex }} onClick={this.toggle}>{btnMsg}</button>
+                <EZNavMobile isMobileView animation={'slide-right-full'} isToggled={this.state.toggled} />
             </div>
-        )
+        );
     }
 }
 

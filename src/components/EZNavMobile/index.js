@@ -1,1 +1,1 @@
-export {default} from './EZNavMobile'
+export { default } from './EZNavMobile';

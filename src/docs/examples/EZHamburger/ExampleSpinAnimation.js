@@ -6,22 +6,27 @@ class ExampleSpinAnimation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggled: false
+            toggled: false,
         };
+        this.toggle = this.toggle.bind(this);
     }
 
     toggle() {
-        this.setState(prevState => {
-            return { toggled: !prevState.toggled };
-        })
+        this.setState(prevState => ({
+            toggled: !prevState.toggled,
+        }));
     }
 
     render() {
         return (
-            <div style = {{height: '50px', width: '50px'}}>
-               <EZHamburger isMobileView active={this.state.toggled} animation='spin' onClick={this.toggle.bind(this)}/>
+            <div style={{ height: '50px', width: '50px' }}>
+                <EZHamburger
+                    active={this.state.toggled}
+                    animation="spin"
+                    onClick={this.toggle}
+                />
             </div>
-        )
+        );
     }
 }
 

@@ -1,20 +1,18 @@
 import classNames from 'classnames';
 
 function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
-
-    let styleObject = {
+    const styleObject = {
         classes: {
-            navItemClass:{},
-            navBackground1Class:{},
-            navBackground2Class:{}
+            navItemClass: {},
+            navBackground1Class: {},
+            navBackground2Class: {},
         },
         styles: {
-            navItemStyle:{},
-            navBackground1Style:{},
-            navBackground2Style:{}
-        }
+            navItemStyle: {},
+            navBackground1Style: {},
+            navBackground2Style: {},
+        },
     };
-
 
     styleObject.classes.navItemClass = classNames({
         'ez-nav-item': true,
@@ -23,7 +21,7 @@ function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
 
     styleObject.classes.navBackground1Class = classNames({
         'ez-nav-item-background': true,
-        'ez-nav-item-background1-none' : hoverTransition === 'none',
+        'ez-nav-item-background1-none': hoverTransition === 'none',
         'ez-nav-item-background1-slide-right': hoverTransition === 'slideRight',
         'ez-nav-item-background1-slide-left': hoverTransition === 'slideLeft',
         'ez-nav-item-background1-rectangle-in': hoverTransition === 'rectangleIn',
@@ -32,7 +30,7 @@ function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
 
     styleObject.classes.navBackground2Class = classNames({
         'ez-nav-item-background': true,
-        'ez-nav-item-background2-none' : hoverTransition === 'none',
+        'ez-nav-item-background2-none': hoverTransition === 'none',
         'ez-nav-item-background2-slide-right': hoverTransition === 'slideRight',
         'ez-nav-item-background2-slide-left': hoverTransition === 'slideLeft',
         'ez-nav-item-background2-rectangle-in': hoverTransition === 'rectangleIn',
@@ -51,7 +49,7 @@ function EZNavItemStyler(fixedWidth, colorStyles, hoverTransition) {
         backgroundColor: colorStyles.backgroundColorHover,
     };
 
-    return styleObject
+    return styleObject;
 }
 
-export default EZNavItemStyler
+export default EZNavItemStyler;

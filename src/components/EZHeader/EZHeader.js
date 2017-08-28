@@ -1,51 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class EZHeader extends React.Component {
+require('./EZHeader.sass');
 
-    constructor(){
+class EZHeader extends React.Component {
+    constructor() {
         super();
         this.state = {
-            isMobileView: false
-        }
-    }
-
-    setMobileViewState() {
-        if(document.documentElement.clientWidth <= this.props.mobileMenuShowWidth) {
-            this.setState({ isMobileView: true })
-        } else {
-            this.setState({ isMobileView: false })
-        }
+            isVisible: false,
+        };
     }
 
     componentDidMount() {
-        this.setMobileViewState()
-        window.addEventListener('resize', this.setMobileViewState.bind(this));
+        this.setIsVisibleState();
+        window.addEventListener('resize', this.setIsVisibleState.bind(this));
+    }
+
+    setIsVisibleState() {
+        const clientWidth = document.documentElement.clientWidth;
+        if (clientWidth <= this.props.screenSizeMax && clientWidth >= this.props.screenSizeMin) {
+            this.setState({ isVisible: true });
+        } else {
+            this.setState({ isVisible: false });
+        }
     }
 
     render() {
-
         const { height, children } = this.props;
-        const childrenWithProps = React.Children.map(children,
-            (child) => React.cloneElement(child, {
-                isMobileView: this.state.isMobileView
-            })
-        );
+        const display = this.state.isVisible ? 'block' : 'none';
+
         return (
-            <div style={{ height }} className="ez-header">
-                { childrenWithProps }
+            <div className="ez-header" style={{ height, display }}>
+                { children }
             </div>
-        )
+        );
     }
 }
 
 EZHeader.propTypes = {
-    /** If the screen size is the size for toggling mobile */
-    mobileToggleSize: PropTypes.integer,
-}
+    /** Min screen size for this menu to be visible */
+    screenSizeMin: PropTypes.number.isRequired,
 
-EZHeader.defaultProps = {
-    mobileToggleSize: 700
-}
+    /** Max screen size for this header to be visible */
+    screenSizeMax: PropTypes.number.isRequired,
 
-export default EZHeader
+    /** Height of the header */
+    height: PropTypes.number.isRequired,
+
+    /** child rows in the header */
+    children: PropTypes.element.isRequired,
+};
+
+EZHeader.defaultProps = {};
+
+export default EZHeader;
